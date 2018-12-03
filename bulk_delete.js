@@ -62,18 +62,22 @@ if(features.COMMUNITIES_MEMBERS_BULK_DELETE_BUTTON)
                             {
                                 if(this.responseText.indexOf(gllConnectionsData.userId) > -1)
                                 {
-                                    //document.getElementById('memberAddButton').innerHTML+='<span class="lotusBtn lotusBtnAction lotusLeft commFocusMT"><a role="button" titlekey="bulk_delete_members" onclick="render_dialog_box();" href="javascript:void(0);"></a></span>';
-                                    var bulk_delete_button_wrapper = document.createElement('SPAN');
-                                    bulk_delete_button_wrapper.className = "lotusBtn lotusBtnAction lotusLeft commFocusMT";
-                                    var bulk_delete_button = document.createElement("A");
-                                    bulk_delete_button.setAttribute('role','button');
-                                    bulk_delete_button.setAttribute('titlekey','bulk_delete_members');
-                                    bulk_delete_button.setAttribute('href','javascript:void(0);');
-                                    bulk_delete_button.appendChild(document.createTextNode(get_translation('BULK_DELETE_MEMBERS')));
-                                    bulk_delete_button.addEventListener('click',render_dialog_box,false);
-                                    bulk_delete_button_wrapper.appendChild(bulk_delete_button);
-                                    document.getElementById('memberAddButton').appendChild(bulk_delete_button_wrapper);
-                                    add_listeners();
+                                    if (!document.getElementById('membersBulkDeleteLink')) {
+                                        console.log("creating bulk delete button ...");
+                                        bulk_delete_button_wrapper.className = "lotusBtn lotusBtnAction lotusLeft commFocusMT";
+                                        var bulk_delete_button = document.createElement("A");
+                                        bulk_delete_button.setAttribute('id','membersBulkDeleteLink');
+                                        bulk_delete_button.setAttribute('role','button');
+                                        bulk_delete_button.setAttribute('titlekey','bulk_delete_members');
+                                        bulk_delete_button.setAttribute('href','javascript:void(0);');
+                                        bulk_delete_button.appendChild(document.createTextNode(get_translation('BULK_DELETE_MEMBERS')));
+                                        bulk_delete_button.addEventListener('click',render_dialog_box,false);
+                                        bulk_delete_button_wrapper.appendChild(bulk_delete_button);
+                                        document.getElementById('memberAddButton').appendChild(bulk_delete_button_wrapper);
+                                        add_listeners();
+                                    }
+                                } else {
+                                    console.log("do not create bulk delete button - it is already there");
                                 }
                             }
                         };
