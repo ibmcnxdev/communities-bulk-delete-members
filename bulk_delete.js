@@ -79,7 +79,8 @@ if(features.COMMUNITIES_MEMBERS_BULK_DELETE_BUTTON)
                                     else {
                                       console.log("do not create bulk delete button - it is already there");
                                     }
-                            }
+								}
+							}
                         };
 
                         xhttp.open("GET", '/communities/service/atom/forms/community/members?lite=true&communityUuid='+resourceId+'&sortBy=created&desc=true&role=owner&ps=100', true);
@@ -89,7 +90,7 @@ if(features.COMMUNITIES_MEMBERS_BULK_DELETE_BUTTON)
                     }
                 }, 600);
             }
-
+            
             function render_dialog_box()
             {
                 deletion_list = [];
