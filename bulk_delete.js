@@ -63,10 +63,11 @@ if(features.COMMUNITIES_MEMBERS_BULK_DELETE_BUTTON)
                                 if(this.responseText.indexOf(gllConnectionsData.userId) > -1)
                                 {
                                     if (!document.getElementById('membersBulkDeleteLink')) {
-                                        console.log("creating bulk delete button ...");
+                                     
                                         bulk_delete_button_wrapper.className = "lotusBtn lotusBtnAction lotusLeft commFocusMT";
                                         var bulk_delete_button = document.createElement("A");
                                         bulk_delete_button.setAttribute('id','membersBulkDeleteLink');
+					console.log("membersBulkDeleteLink id set ...");
                                         bulk_delete_button.setAttribute('role','button');
                                         bulk_delete_button.setAttribute('titlekey','bulk_delete_members');
                                         bulk_delete_button.setAttribute('href','javascript:void(0);');
@@ -74,6 +75,7 @@ if(features.COMMUNITIES_MEMBERS_BULK_DELETE_BUTTON)
                                         bulk_delete_button.addEventListener('click',render_dialog_box,false);
                                         bulk_delete_button_wrapper.appendChild(bulk_delete_button);
                                         document.getElementById('memberAddButton').appendChild(bulk_delete_button_wrapper);
+					console.log("created bulk delete button ...");
                                         add_listeners();
                                     }
                                     else {
