@@ -62,29 +62,20 @@ if(features.COMMUNITIES_MEMBERS_BULK_DELETE_BUTTON)
                             {
                                 if(this.responseText.indexOf(gllConnectionsData.userId) > -1)
                                 {
-					console.log("before membersBulkDeleteLink check...");
-                                    if (document.getElementById('membersBulkDeleteLink') == null) {     
-					titlekey="bulk_delete_members" onclick="render_dialog_box();" href="javascript:void(0);"></a></span>';
-                                        var bulk_delete_button_wrapper = document.createElement('SPAN');
-                                        bulk_delete_button_wrapper.className = "lotusBtn lotusBtnAction lotusLeft commFocusMT";
-                                        var bulk_delete_button = document.createElement("A");
-                                        bulk_delete_button.setAttribute('id','membersBulkDeleteLink');
-					console.log("membersBulkDeleteLink id set ...");
-                                        bulk_delete_button.setAttribute('role','button');
-                                        bulk_delete_button.setAttribute('titlekey','bulk_delete_members');
-                                        bulk_delete_button.setAttribute('href','javascript:void(0);');
-                                        bulk_delete_button.appendChild(document.createTextNode(get_translation('BULK_DELETE_MEMBERS')));
-                                        bulk_delete_button.addEventListener('click',render_dialog_box,false);
-                                        bulk_delete_button_wrapper.appendChild(bulk_delete_button);
-                                        document.getElementById('memberAddButton').appendChild(bulk_delete_button_wrapper);
-					console.log("created bulk delete button ...");
-                                        add_listeners();
-                                    }
-                                    else {
-                                      console.log("do not create bulk delete button - it is already there");
-                                    }
-								}
-							}
+                                    //document.getElementById('memberAddButton').innerHTML+='<span class="lotusBtn lotusBtnAction lotusLeft commFocusMT"><a role="button" titlekey="bulk_delete_members" onclick="render_dialog_box();" href="javascript:void(0);"></a></span>';
+                                    var bulk_delete_button_wrapper = document.createElement('SPAN');
+                                    bulk_delete_button_wrapper.className = "lotusBtn lotusBtnAction lotusLeft commFocusMT";
+                                    var bulk_delete_button = document.createElement("A");
+                                    bulk_delete_button.setAttribute('role','button');
+                                    bulk_delete_button.setAttribute('titlekey','bulk_delete_members');
+                                    bulk_delete_button.setAttribute('href','javascript:void(0);');
+                                    bulk_delete_button.appendChild(document.createTextNode(get_translation('BULK_DELETE_MEMBERS')));
+                                    bulk_delete_button.addEventListener('click',render_dialog_box,false);
+                                    bulk_delete_button_wrapper.appendChild(bulk_delete_button);
+                                    document.getElementById('memberAddButton').appendChild(bulk_delete_button_wrapper);
+                                    add_listeners();
+                                }
+                            }
                         };
 
                         xhttp.open("GET", '/communities/service/atom/forms/community/members?lite=true&communityUuid='+resourceId+'&sortBy=created&desc=true&role=owner&ps=100', true);
@@ -94,7 +85,7 @@ if(features.COMMUNITIES_MEMBERS_BULK_DELETE_BUTTON)
                     }
                 }, 600);
             }
-            
+
             function render_dialog_box()
             {
                 deletion_list = [];
