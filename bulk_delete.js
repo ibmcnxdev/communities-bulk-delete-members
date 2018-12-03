@@ -62,8 +62,8 @@ if(features.COMMUNITIES_MEMBERS_BULK_DELETE_BUTTON)
                             {
                                 if(this.responseText.indexOf(gllConnectionsData.userId) > -1)
                                 {
-                                    if (!document.getElementById('membersBulkDeleteLink')) {
-                                     
+					console.log("before membersBulkDeleteLink check...");
+                                    if (document.getElementById('membersBulkDeleteLink') != null) {                           
                                         bulk_delete_button_wrapper.className = "lotusBtn lotusBtnAction lotusLeft commFocusMT";
                                         var bulk_delete_button = document.createElement("A");
                                         bulk_delete_button.setAttribute('id','membersBulkDeleteLink');
