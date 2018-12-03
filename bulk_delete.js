@@ -76,9 +76,9 @@ if(features.COMMUNITIES_MEMBERS_BULK_DELETE_BUTTON)
                                         document.getElementById('memberAddButton').appendChild(bulk_delete_button_wrapper);
                                         add_listeners();
                                     }
-                                } else {
-                                    console.log("do not create bulk delete button - it is already there");
-                                }
+                                    else {
+                                      console.log("do not create bulk delete button - it is already there");
+                                    }
                             }
                         };
 
